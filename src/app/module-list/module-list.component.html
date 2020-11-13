@@ -2,7 +2,37 @@
   <li class="list-group-item active">
     Modules
   </li>
-  <li *ngFor="let module of modules" class="list-group-item">
-    {{module.title}}
+  <li *ngFor="let module of modules"
+      [ngClass]="{'list-group-item-success': module._id === moduleId}"
+      class="list-group-item">
+
+
+  <span [hidden]="module.editing">
+      <a routerLink="/courses/{{courseId}}/modules/{{module._id}}/lessons">
+          {{module.title}}
+      </a>
+
+  </span>
+
+    <input [hidden]="!module.editing" [(ngModel)]="module.title"/>
+
+
+    <!--  Buttons DELETE, EDIT, SAVE  -->
+    <button class="float-right" (click)="deleteModule(module)">
+      Delete
+    </button>
+    <button class="float-right" [hidden]="module.editing" (click)="editModule(module)">
+      Edit
+    </button>
+    <button class="float-right" [hidden]="!module.editing" (click)="saveModule(module)">
+      Save
+    </button>
   </li>
+
+  <li  class="list-group-item">
+    <button (click)="createModuleForCourse(courseId)">
+      Create
+    </button>
+  </li>
+
 </ul>
