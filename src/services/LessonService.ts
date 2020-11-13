@@ -1,24 +1,25 @@
 import {Injectable} from '@angular/core';
 
-const courseUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/courses';
 const moduleUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/modules';
+const lessonUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/lessons';
+
 
 @Injectable()
-export class ModuleService {
-  findModulesForCourse = (courseId) =>
-    fetch(`${courseUrl}/${courseId}/modules`)
+export class LessonService {
+  findLessonsForModules = (moduleId) =>
+    fetch(`${moduleUrl}/${moduleId}/lessons`)
       .then(response => response.json())
 
-  deleteModules = (moduleId) =>
-    fetch(`${moduleUrl}/${moduleId}`, {
+  deleteLesson = (lessonId) =>
+    fetch(`${lessonUrl}/${lessonId}`, {
       method: 'DELETE'
     })
       .then(response => response.json())
 
-  createModuleForCourse = (courseId) =>
-    fetch(`${courseUrl}/${courseId}/modules`, {
+  createLessonForModule = (moduleId) =>
+    fetch(`${moduleUrl}/${moduleId}/lessons`, {
       method: 'POST',
-      body: JSON.stringify({title: 'New Module'}),
+      body: JSON.stringify({title: 'New Lesson'}),
       headers: {
         'content-type': 'application/json'
       }
@@ -26,10 +27,10 @@ export class ModuleService {
       .then(response => response.json())
 
 
-  updateModule = (module) =>
-    fetch(`${moduleUrl}/${module.id}`, {
+  updateLesson = (lesson) =>
+    fetch(`${lessonUrl}/${lesson._id}`, {
       method: 'PUT',
-      body: JSON.stringify(module),
+      body: JSON.stringify(lesson),
       headers: {
         'content-type': 'application/json'
       }

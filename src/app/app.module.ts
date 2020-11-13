@@ -12,6 +12,8 @@ import { ModuleListComponent } from './module-list/module-list.component';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
+import {LessonService} from '../services/LessonService';
+import {TopicService} from '../services/TopicService';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
     FormsModule
   ],
   providers: [
-    CourseService, ModuleService
+    CourseService, ModuleService, LessonService, TopicService
   ],
   bootstrap: [AppComponent]
 })

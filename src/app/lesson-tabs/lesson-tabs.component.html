@@ -1,1 +1,40 @@
-<p>lesson-tabs works!</p>
+<!--<p>lesson-tabs works!</p>-->
+
+<ul class="list-group">
+  <li class="list-group-item active">
+    Lessons
+  </li>
+  <li *ngFor="let lesson of lessons"
+      [ngClass]="{'list-group-item-success': lesson._id === lessonId}"
+      class="list-group-item">
+
+
+  <span [hidden]="lesson.editing">
+      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
+          {{lesson.title}}
+      </a>
+
+  </span>
+
+    <input [hidden]="!lesson.editing" [(ngModel)]="lesson.title"/>
+
+
+    <!--  Buttons DELETE, EDIT, SAVE  -->
+    <button class="float-right" (click)="deleteLesson(lesson)">
+      Delete
+    </button>
+    <button class="float-right" [hidden]="lesson.editing" (click)="editLesson(lesson)">
+      Edit
+    </button>
+    <button class="float-right" [hidden]="!lesson.editing" (click)="saveLesson(lesson)">
+      Save
+    </button>
+  </li>
+
+  <li  class="list-group-item">
+    <button (click)="createLessonForModule(moduleId)">
+      Create
+    </button>
+  </li>
+
+</ul>
