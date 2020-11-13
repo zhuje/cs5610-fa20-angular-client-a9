@@ -1,1 +1,40 @@
-<p>topic-pills works!</p>
+<!--<p>topic-pills works!</p>-->
+
+<ul class="list-group">
+  <li class="list-group-item active">
+    Topics
+  </li>
+  <li *ngFor="let topic of topics"
+      [ngClass]="{'list-group-item-success': topic._id === topicId}"
+      class="list-group-item">
+
+
+  <span [hidden]="topic.editing">
+      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}/widgets">
+          {{topic.title}}
+      </a>
+
+  </span>
+
+    <input [hidden]="!topic.editing" [(ngModel)]="topic.title"/>
+
+
+    <!--  Buttons DELETE, EDIT, SAVE  -->
+    <button class="float-right" (click)="deleteTopic(topic)">
+      Delete
+    </button>
+    <button class="float-right" [hidden]="topic.editing" (click)="editTopic(topic)">
+      Edit
+    </button>
+    <button class="float-right" [hidden]="!topic.editing" (click)="saveTopic(topic)">
+      Save
+    </button>
+  </li>
+
+  <li  class="list-group-item">
+    <button (click)="createTopicForLesson(lessonId)">
+      Create
+    </button>
+  </li>
+
+</ul>

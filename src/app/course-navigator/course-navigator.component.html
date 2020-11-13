@@ -5,16 +5,29 @@
   <div class="col-3">
     <app-course-list></app-course-list>
   </div>
-  <div class="col-4">
-    <app-module-list></app-module-list>
+
+  <div class="row col-9">
+    <div class="col-6">
+
+      <a routerLink="/courses/">
+        <h1> <i class="fas fa-times"></i>  Course  </h1>
+      </a>
+
+
+
+      <app-module-list></app-module-list>
+    </div>
+    <div class="col-6">
+      <h1> Add Spacing css </h1>
+      <app-lesson-tabs></app-lesson-tabs>
+      <app-topic-pills></app-topic-pills>
+    </div>
   </div>
-  <div class="col-5">
-    <app-lesson-tabs></app-lesson-tabs>
-  </div>
+
 </div>
 
 
-<app-topic-pills></app-topic-pills>
+
 <app-widget-list></app-widget-list>
 
 

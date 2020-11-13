@@ -13,7 +13,6 @@
       <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
           {{lesson.title}}
       </a>
-
   </span>
 
     <input [hidden]="!lesson.editing" [(ngModel)]="lesson.title"/>
