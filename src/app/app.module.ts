@@ -14,6 +14,7 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {LessonService} from '../services/LessonService';
 import {TopicService} from '../services/TopicService';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {TopicService} from '../services/TopicService';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     CourseService, ModuleService, LessonService, TopicService

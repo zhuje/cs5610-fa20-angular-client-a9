@@ -21,6 +21,7 @@ export class ModuleListComponent implements OnInit {
     this.activeRoute.params.subscribe(params => {
       console.log(params);
       this.courseId = params.cid;
+      this.moduleId = params.mid;
       if (typeof this.courseId !== 'undefined') {
         this.moduleService.findModulesForCourse(this.courseId)
           .then(modules => this.modules = modules);

@@ -1,44 +1,56 @@
-<!--<p>lesson-tabs works!</p>-->
 
-<ul class=" list-group">
-  <li class="list-group-item active">
-    Lessons
-  </li>
+
+<!-- NEW -->
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
   <li *ngFor="let lesson of lessons"
-      [ngClass]="{'list-group-item-success': lesson._id === lessonId}"
-      class=" list-group-item">
-
-
-  <span [hidden]="lesson.editing">
-      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
+      [ngClass]="{'list-group-item-success': lesson._id === lessonId}"  ngbNavItem >
+      <a ngbNavLink routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
           {{lesson.title}}
       </a>
-  </span>
-
-    <input [hidden]="!lesson.editing" [(ngModel)]="lesson.title"/>
-
-
-    <!--  Buttons DELETE, EDIT, SAVE  -->
-<!--    <i class="fas fa-times float-right" (click)="deleteLesson(lesson)">-->
-<!--    </i>-->
-<!--    <i class="fas fa-edit float-right" [hidden]="lesson.editing" (click)="editLesson(lesson)">-->
-<!--    </i>-->
-
-    <button class="float-right" (click)="deleteLesson(lesson)">
-      Delete
-    </button>
-    <button class="float-right" [hidden]="lesson.editing" (click)="editLesson(lesson)">
-      Edit
-    </button>
-    <button class="float-right" [hidden]="!lesson.editing" (click)="saveLesson(lesson)">
-      Save
-    </button>
   </li>
-
-  <li  class="list-group-item">
-    <button (click)="createLessonForModule(moduleId)">
-      Create
-    </button>
-  </li>
-
 </ul>
+<div [ngbNavOutlet]="nav"></div>
+
+
+
+<!-- OLD -->
+<!--<ul class=" nav nav-tabs">-->
+<!--  <li class="nav-item">-->
+<!--    Lessons-->
+<!--  </li>-->
+<!--  <li *ngFor="let lesson of lessons"-->
+<!--      [ngClass]="{'list-group-item-success': lesson._id === lessonId}"-->
+<!--      class=" nav-item">-->
+
+
+<!--  <span [hidden]="lesson.editing">-->
+<!--      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">-->
+<!--          {{lesson.title}}-->
+<!--      </a>-->
+<!--  </span>-->
+
+<!--    <input [hidden]="!lesson.editing" [(ngModel)]="lesson.title"/>-->
+
+
+<!--    &lt;!&ndash;  Buttons DELETE, EDIT, SAVE  &ndash;&gt;-->
+<!--    <button class="float-right" (click)="deleteLesson(lesson)">-->
+<!--      Delete-->
+<!--    </button>-->
+<!--    <button class="float-right" [hidden]="lesson.editing" (click)="editLesson(lesson)">-->
+<!--      Edit-->
+<!--    </button>-->
+<!--    <button class="float-right" [hidden]="!lesson.editing" (click)="saveLesson(lesson)">-->
+<!--      Save-->
+<!--    </button>-->
+<!--  </li>-->
+
+<!--  <li  class="list-group-item">-->
+<!--    <button (click)="createLessonForModule(moduleId)">-->
+<!--      Create-->
+<!--    </button>-->
+<!--  </li>-->
+
+
+
+
+<!--</ul>-->

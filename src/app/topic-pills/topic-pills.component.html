@@ -10,7 +10,8 @@
 
 
   <span [hidden]="topic.editing">
-      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}/widgets">
+      <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}/widgets"
+         class="badge badge-pill badge-primary">
           {{topic.title}}
       </a>
 
@@ -20,21 +21,21 @@
 
 
     <!--  Buttons DELETE, EDIT, SAVE  -->
-    <button class="float-right" (click)="deleteTopic(topic)">
-      Delete
-    </button>
-    <button class="float-right" [hidden]="topic.editing" (click)="editTopic(topic)">
-      Edit
-    </button>
-    <button class="float-right" [hidden]="!topic.editing" (click)="saveTopic(topic)">
-      Save
-    </button>
+<!--    <button class="float-right" (click)="deleteTopic(topic)">-->
+<!--      Delete-->
+<!--    </button>-->
+<!--    <button class="float-right" [hidden]="topic.editing" (click)="editTopic(topic)">-->
+<!--      Edit-->
+<!--    </button>-->
+<!--    <button class="float-right" [hidden]="!topic.editing" (click)="saveTopic(topic)">-->
+<!--      Save-->
+<!--    </button>-->
   </li>
 
-  <li  class="list-group-item">
-    <button (click)="createTopicForLesson(lessonId)">
-      Create
-    </button>
-  </li>
+<!--  <li  class="list-group-item">-->
+<!--    <button (click)="createTopicForLesson(lessonId)">-->
+<!--      Create-->
+<!--    </button>-->
+<!--  </li>-->
 
 </ul>
