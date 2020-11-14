@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseService} from '../../services/course-service';
+import {CourseServiceClient} from '../../services/CourseServiceClient';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class CourseListComponent implements OnInit {
   courseId = '';
 
   constructor(private activedRoute: ActivatedRoute,
-              private courseService: CourseService) { }
+              private courseService: CourseServiceClient) { }
 
   ngOnInit(): void {
     this.activedRoute.params.subscribe(params => {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ModuleService} from '../../services/ModuleService';
-import {TopicService} from '../../services/TopicService';
+import {ModuleServiceClient} from '../../services/ModuleServiceClient';
+import {TopicServiceClient} from '../../services/TopicServiceClient';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class TopicPillsComponent implements OnInit {
   moduleId = '';
   courseId = '';
 
-  constructor(private topicService: TopicService,
+  constructor(private topicService: TopicServiceClient,
               private activeRoute: ActivatedRoute
               ) { }
 
@@ -26,6 +26,7 @@ export class TopicPillsComponent implements OnInit {
       this.lessonId = params.lid;
       this.moduleId = params.mid;
       this.courseId = params.cid;
+      this.topicId = params.tid;
       if (typeof this.lessonId !== 'undefined') {
         this.topicService.findTopicsForLesson(this.lessonId)
           .then(topics => this.topics = topics);

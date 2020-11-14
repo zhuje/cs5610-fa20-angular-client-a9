@@ -6,7 +6,7 @@ const lessonUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/lessons'
 const topicUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/topics';
 
 @Injectable()
-export class TopicService {
+export class TopicServiceClient {
   findTopicsForLesson = (lessonId) =>
     fetch(`${lessonUrl}/${lessonId}/topics`)
       .then(response => response.json())

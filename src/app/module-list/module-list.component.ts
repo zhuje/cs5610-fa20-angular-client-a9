@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ModuleService} from '../../services/ModuleService';
-import {CourseService} from '../../services/course-service';
+import {ModuleServiceClient} from '../../services/ModuleServiceClient';
+import {CourseServiceClient} from '../../services/CourseServiceClient';
 
 @Component({
   selector: 'app-module-list',
@@ -14,7 +14,7 @@ export class ModuleListComponent implements OnInit {
   moduleId = '';
   courseId = '';
 
-  constructor(private moduleService: ModuleService,
+  constructor(private moduleService: ModuleServiceClient,
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

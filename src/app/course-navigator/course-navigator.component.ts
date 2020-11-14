@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseService} from '../../services/course-service';
-import {ModuleService} from '../../services/ModuleService';
+import {CourseServiceClient} from '../../services/CourseServiceClient';
+import {ModuleServiceClient} from '../../services/ModuleServiceClient';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -54,8 +54,8 @@ export class CourseNavigatorComponent implements OnInit {
     this.moduleService.updateModule(module)
       .then(status => this.modules = this.modules.map(m => m._id === module._id ? module : m))
 
-  constructor(private courseService: CourseService,
-              private moduleService: ModuleService,
+  constructor(private courseService: CourseServiceClient,
+              private moduleService: ModuleServiceClient,
               private activeRoute: ActivatedRoute,
               ) { }
 

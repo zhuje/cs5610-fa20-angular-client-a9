@@ -4,7 +4,7 @@ const courseUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/courses'
 const moduleUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/modules';
 
 @Injectable()
-export class ModuleService {
+export class ModuleServiceClient {
   findModulesForCourse = (courseId) =>
     fetch(`${courseUrl}/${courseId}/modules`)
       .then(response => response.json())

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ModuleService} from '../../services/ModuleService';
-import {LessonService} from '../../services/LessonService';
+import {ModuleServiceClient} from '../../services/ModuleServiceClient';
+import {LessonServiceClient} from '../../services/LessonServiceClient';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class LessonTabsComponent implements OnInit {
   courseId = '';
   topicId = '';
 
-  constructor(private lessonService: LessonService,
+  constructor(private lessonService: LessonServiceClient,
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

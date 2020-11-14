@@ -5,7 +5,7 @@ const lessonUrl = 'https://wbdv-generic-server.herokuapp.com/api/zhujen/lessons'
 
 
 @Injectable()
-export class LessonService {
+export class LessonServiceClient {
   findLessonsForModules = (moduleId) =>
     fetch(`${moduleUrl}/${moduleId}/lessons`)
       .then(response => response.json())
