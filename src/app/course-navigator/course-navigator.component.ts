@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../../services/course-service';
 import {ModuleService} from '../../services/ModuleService';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-course-navigator',
@@ -9,13 +10,15 @@ import {ModuleService} from '../../services/ModuleService';
 })
 export class CourseNavigatorComponent implements OnInit {
 
-  courses = []
-  modules = []
-  lessons = []
-  topics = []
+  courseId = '';
+  course;
+  courses = [];
+  modules = [];
+  lessons = [];
+  topics = [];
   selectedCourse = {
     title: ''
-  }
+  };
 
   createCourse = () =>
     this.courseService.createCourse()
@@ -52,9 +55,19 @@ export class CourseNavigatorComponent implements OnInit {
       .then(status => this.modules = this.modules.map(m => m._id === module._id ? module : m))
 
   constructor(private courseService: CourseService,
-              private moduleService: ModuleService) { }
+              private moduleService: ModuleService,
+              private activeRoute: ActivatedRoute,
+              ) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe(params => {
+      console.log(params);
+      this.courseId = params.cid;
+    });
+
+    this.courseService.findCourseById(this.courseId)
+      .then(course => this.course = course);
+
     this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
   }
