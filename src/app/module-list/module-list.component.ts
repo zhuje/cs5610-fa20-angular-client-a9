@@ -43,7 +43,7 @@ export class ModuleListComponent implements OnInit {
   saveModule = (module) => {
     module.editing = false;
     this.moduleService.updateModule(module);
-      // .then(status => this.modules = this.modules.map(m => m._id === module._id ? module : m))
+      // .then(status => this.modules = this.modules.map(m => m._id === module._id ? module : m));
   }
 
 

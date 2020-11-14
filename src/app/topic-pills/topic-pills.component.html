@@ -1,23 +1,23 @@
 <!--<p>topic-pills works!</p>-->
 
-<ul class="list-group">
-  <li class="list-group-item active">
-    Topics
-  </li>
+<ul class="nav nav-pills nav-justified">
+<!--  <li class="list-group-item active">-->
+<!--    Topics-->
+<!--  </li>-->
   <li *ngFor="let topic of topics"
       [ngClass]="{'list-group-item-success': topic._id === topicId}"
-      class="list-group-item">
+      class="nav-link">
 
 
-  <span [hidden]="topic.editing">
+<!--  <span [hidden]="topic.editing">-->
       <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}/widgets"
-         class="badge badge-pill badge-primary">
+         class="nav-link active">
           {{topic.title}}
       </a>
 
-  </span>
+<!--  </span>-->
 
-    <input [hidden]="!topic.editing" [(ngModel)]="topic.title"/>
+<!--    <input [hidden]="!topic.editing" [(ngModel)]="topic.title"/>-->
 
 
     <!--  Buttons DELETE, EDIT, SAVE  -->

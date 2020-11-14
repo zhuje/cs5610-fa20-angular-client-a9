@@ -14,6 +14,7 @@ export class LessonTabsComponent implements OnInit {
   lessonId = '';
   moduleId = '';
   courseId = '';
+  topicId = '';
 
   constructor(private lessonService: LessonService,
               private activeRoute: ActivatedRoute) { }
@@ -24,6 +25,7 @@ export class LessonTabsComponent implements OnInit {
       this.courseId = params.cid;
       this.moduleId = params.mid;
       this.lessonId = params.lid;
+      this.topicId = params.tid;
       if (typeof this.moduleId !== 'undefined') {
         this.lessonService.findLessonsForModules(this.moduleId)
           .then(lessons => this.lessons = lessons);
