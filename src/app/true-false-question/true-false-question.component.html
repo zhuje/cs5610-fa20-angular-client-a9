@@ -1,1 +1,30 @@
-<p>true-false-question works!</p>
+<h3>     {{question.question }}   </h3><br>
+<h3>    correct :  {{question.correct }}   </h3><br>
+<h3>     {{question.answer }}   </h3><br>
+
+
+
+//question.answer === question.correct
+<ul class="list-group">
+  <li class="list-group-item"
+      [ngClass]="{'list-group-item-success': grading === true && question.answer === question.correct}"
+      [ngClass]="{'list-group-item-danger': grading === true && question.answer !== question.correct}"
+      >
+    TRUE  <input type="radio" id="true" name="{{question._id}}"
+                 [(ngModel)]="question.answer" value="true"  />
+  </li>
+
+
+  <li class="list-group-item"
+  >
+    FALSE  <input type="radio" id="false" name="{{question._id}}"
+                  [(ngModel)]="question.answer" value="false"/>
+  </li>
+
+
+</ul>
+
+<button type="button" class="btn btn-success" (click)="grade()">
+  Grade {{ grading }}
+</button>
+

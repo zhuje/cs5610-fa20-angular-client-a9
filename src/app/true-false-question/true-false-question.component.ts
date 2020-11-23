@@ -13,13 +13,24 @@ export class TrueFalseQuestionComponent implements OnInit {
   }
 
   @Input()
-  question = {_id: '', title: '', question: '', answer: '', correct: ''};
+  question = {
+    _id: '',
+    title: '',
+    question: '',
+    answer: '',
+    correct: '',
+  };
+
+  choice = ['True', 'False'];
   grading = false;
   faCheck = faCheck;
   faTimes = faTimes;
   grade = () => {
     this.grading = true;
   };
+
+
+
 
   ngOnInit(): void {
   }
