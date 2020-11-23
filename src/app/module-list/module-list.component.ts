@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ModuleServiceClient} from '../../services/ModuleServiceClient';
 import {CourseServiceClient} from '../../services/CourseServiceClient';
+import {QuizzesServiceClient} from '../../services/quiz.service.client';
 
 @Component({
   selector: 'app-module-list',
@@ -15,7 +16,8 @@ export class ModuleListComponent implements OnInit {
   courseId = '';
 
   constructor(private moduleService: ModuleServiceClient,
-              private activeRoute: ActivatedRoute) { }
+              private activeRoute: ActivatedRoute,
+              private quizService: QuizzesServiceClient ) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {

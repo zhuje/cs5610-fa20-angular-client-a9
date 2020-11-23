@@ -15,6 +15,10 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
 import {LessonServiceClient} from '../services/LessonServiceClient';
 import {TopicServiceClient} from '../services/TopicServiceClient';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {QuizzesServiceClient} from '../services/quiz.service.client';
+import {QuestionsServiceClient} from '../services/question.service.client';
+import {QuizzesComponent } from './quizzes/quizzes.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModuleListComponent,
     LessonTabsComponent,
     TopicPillsComponent,
-    WidgetListComponent
+    WidgetListComponent,
+    QuizzesComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-    CourseServiceClient, ModuleServiceClient, LessonServiceClient, TopicServiceClient
+    CourseServiceClient,
+    ModuleServiceClient,
+    LessonServiceClient,
+    TopicServiceClient,
+    QuizzesServiceClient,
+    QuestionsServiceClient
   ],
   bootstrap: [AppComponent]
 })
