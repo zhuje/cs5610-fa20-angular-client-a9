@@ -1,44 +1,27 @@
 <h3>     {{question.question }}   </h3><br>
-<h3>    question.correct is :  {{question.correct }}   </h3><br>
-<h3>    question.answer is :  {{question.answer }}   </h3><br>
-
-
-<!--[ngClass]="{'list-group-item-danger': grading === true && question.answer !== question.correct}"-->
-<!--[ngClass]="{'list-group-item-success': grading === true && question.answer === question.correct}"-->
 
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let choice of choices"
-      [ngClass]="{'list-group-item-success': grading === true && choice === question.correct}"
-      [ngClass]="{'list-group-item-danger': question.answer === question.correct && grading === true && choice !== question.correct}"
-      >
+  <li class="list-group-item" *ngFor="let option of options"
+      [ngClass]="{
+          'list-group-item-success': (grading === true
+          && question.correct === question.selectedAnswer
+          && question.correct === option) || grading === true
+          && question.correct !== question.selectedAnswer
+          && question.correct === option,
+          'list-group-item-danger': grading === true
+          && question.correct !== question.selectedAnswer
+          && question.correct !== option
+      }"
+  >
 
-    {{choice}}  question.answer is : {{question.answer}} <input type="radio"  name="{{question._id}}"
-                 [(ngModel)]="question.answer"  value="{{choice}}"  />
+    {{option}} <input type="radio" name="{{question._id}}"
+                      [(ngModel)]="question.selectedAnswer"
+                      value="{{option}}"/>
   </li>
-
 
 
 </ul>
 
 <button type="button" class="btn btn-success" (click)="grade()">
-  Grade {{ grading }}
+  Grade
 </button>
-
-<div class="text-center mt-5">
-  <h4>Selected value is {{radioSel}}</h4>
-
-  <div>
-    <ul class="list-group">
-      <li class="list-group-item"  *ngFor="let choice of choices">
-        <input type="radio" [(ngModel)]="radioSelected"
-               name="list_name" value="{{choice}}" (change)="onItemChange(choice)"/>
-        {{choice}}
-
-      </li>
-    </ul>
-  </div>
-
-
-  <h5>{{radioSelectedString}}</h5>
-
-</div>

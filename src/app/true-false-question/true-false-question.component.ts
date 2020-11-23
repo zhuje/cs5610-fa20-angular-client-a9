@@ -25,7 +25,7 @@ export class TrueFalseQuestionComponent implements OnInit {
   radioSelected:string;
   radioSelectedString:string;
   // itemsList: Item[] = ITEMS;
-  choices = ['true', 'false'];
+  options = ['true', 'false'];
 
 
 
@@ -34,14 +34,14 @@ export class TrueFalseQuestionComponent implements OnInit {
     _id: '',
     title: '',
     question: '',
-    answer: '',
+    selectedAnswer: '',
     correct: '',
     selected: false,
   };
 
   // Get row item from array
   getSelecteditem(){
-    this.radioSel = this.choices.find(choice => choice === this.radioSelected);
+    this.radioSel = this.options.find(choice => choice === this.radioSelected);
     this.radioSelectedString = JSON.stringify(this.radioSel);
   }
   // Radio Change Event
