@@ -33,6 +33,10 @@
     <!--    <span [hidden]="course.editing">{{course.title}}</span>-->
     <input [hidden]="!course.editing" [(ngModel)]="course.title"/>
 
+    <a class="float-right" routerLink="/courses/{{course._id}}/quizzes">
+      Quizzes
+    </a>
+
 
     <!--  Buttons DELETE, EDIT, SAVE  -->
 <!--    <button class="float-right" (click)="deleteCourse(course)">-->
@@ -55,8 +59,6 @@
 
 </ul>
 
-    <a class="float-right" routerLink="/courses/{{courseId}}/quizzes">
-      Quizzes </a>
 
 
 </div>

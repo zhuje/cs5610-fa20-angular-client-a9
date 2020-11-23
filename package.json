@@ -34,7 +34,8 @@
     "rxjs": "~6.6.3",
     "tslib": "^1.10.0",
     "typescript": "~4.0.5",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@fortawesome/free-solid-svg-icons": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.1",

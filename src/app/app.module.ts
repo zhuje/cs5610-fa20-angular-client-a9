@@ -19,6 +19,8 @@ import {QuizzesServiceClient} from '../services/quiz.service.client';
 import {QuestionsServiceClient} from '../services/question.service.client';
 import {QuizzesComponent } from './quizzes/quizzes.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { QuizComponent } from './quiz/quiz.component';
     TopicPillsComponent,
     WidgetListComponent,
     QuizzesComponent,
-    QuizComponent
+    QuizComponent,
+    TrueFalseQuestionComponent,
+    MultipleChoiceQuestionComponent
   ],
   imports: [
     BrowserModule,
