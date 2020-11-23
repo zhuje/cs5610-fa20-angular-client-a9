@@ -6,20 +6,14 @@
 
 //question.answer === question.correct
 <ul class="list-group">
-  <li class="list-group-item"
+  <li class="list-group-item" *ngFor="let choice of choices"
       [ngClass]="{'list-group-item-success': grading === true && question.answer === question.correct}"
       [ngClass]="{'list-group-item-danger': grading === true && question.answer !== question.correct}"
       >
-    TRUE  <input type="radio" id="true" name="{{question._id}}"
-                 [(ngModel)]="question.answer" value="true"  />
+    {{choice}}  <input type="radio"  name="{{question._id}}"
+                 [(ngModel)]="question.answer" value="{{choice}}"  />
   </li>
 
-
-  <li class="list-group-item"
-  >
-    FALSE  <input type="radio" id="false" name="{{question._id}}"
-                  [(ngModel)]="question.answer" value="false"/>
-  </li>
 
 
 </ul>
@@ -28,3 +22,21 @@
   Grade {{ grading }}
 </button>
 
+<div class="text-center mt-5">
+  <h4>Selected value is {{radioSel}}</h4>
+
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"  *ngFor="let choice of choices">
+        <input type="radio" [(ngModel)]="radioSelected"
+               name="list_name" value="{{choice}}" (change)="onItemChange(choice)"/>
+        {{choice}}
+
+      </li>
+    </ul>
+  </div>
+
+
+  <h5>{{radioSelectedString}}</h5>
+
+</div>

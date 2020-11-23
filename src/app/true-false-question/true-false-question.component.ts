@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-true-false-question',
   templateUrl: './true-false-question.component.html',
@@ -9,8 +10,27 @@ import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 export class TrueFalseQuestionComponent implements OnInit {
 
+
   constructor() {
+    // Selecting Default Radio item here
+    this.getSelecteditem();
   }
+
+  // constructor() {
+  // }
+
+  grading = false;
+  faCheck = faCheck;
+  faTimes = faTimes;
+
+  title = 'app';
+  radioSel:any;
+  radioSelected:string;
+  radioSelectedString:string;
+  // itemsList: Item[] = ITEMS;
+  choices = ['True', 'False'];
+
+
 
   @Input()
   question = {
@@ -19,15 +39,25 @@ export class TrueFalseQuestionComponent implements OnInit {
     question: '',
     answer: '',
     correct: '',
+    selected: false,
   };
 
-  choice = ['True', 'False'];
-  grading = false;
-  faCheck = faCheck;
-  faTimes = faTimes;
+  // Get row item from array
+  getSelecteditem(){
+    this.radioSel = this.choices.find(choice => choice === this.radioSelected);
+    this.radioSelectedString = JSON.stringify(this.radioSel);
+  }
+  // Radio Change Event
+  onItemChange(item){
+    this.getSelecteditem();
+  }
+
+
   grade = () => {
     this.grading = true;
   };
+
+
 
 
 
