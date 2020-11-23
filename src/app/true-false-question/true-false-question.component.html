@@ -3,11 +3,14 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let option of options"
       [ngClass]="{
-          'list-group-item-success': (grading === true
+          'list-group-item-success': (
+          grading === true
           && question.correct === question.selectedAnswer
-          && question.correct === option) || grading === true
+          && question.correct === option)
+          ||
+          (grading === true
           && question.correct !== question.selectedAnswer
-          && question.correct === option,
+          && question.correct === option),
           'list-group-item-danger': grading === true
           && question.correct !== question.selectedAnswer
           && question.correct !== option
