@@ -16,9 +16,6 @@ export class TrueFalseQuestionComponent implements OnInit {
     this.getSelecteditem();
   }
 
-  // constructor() {
-  // }
-
   grading = false;
   faCheck = faCheck;
   faTimes = faTimes;
@@ -28,7 +25,7 @@ export class TrueFalseQuestionComponent implements OnInit {
   radioSelected:string;
   radioSelectedString:string;
   // itemsList: Item[] = ITEMS;
-  choices = ['True', 'False'];
+  choices = ['true', 'false'];
 
 
 

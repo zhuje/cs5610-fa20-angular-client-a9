@@ -1,14 +1,13 @@
 <h3>     {{question.question }}   </h3><br>
-<h3>    correct :  {{question.correct }}   </h3><br>
-<h3>     {{question.answer }}   </h3><br>
+<h3>    question.correct is :  {{question.correct }}   </h3><br>
+<h3>    question.answer is :  {{question.answer }}   </h3><br>
 
 
 
-//question.answer === question.correct
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let choice of choices"
-      [ngClass]="{'list-group-item-success': grading === true && question.answer === question.correct}"
       [ngClass]="{'list-group-item-danger': grading === true && question.answer !== question.correct}"
+      [ngClass]="{'list-group-item-success': grading === true && question.answer === question.correct}"
       >
     {{choice}}  <input type="radio"  name="{{question._id}}"
                  [(ngModel)]="question.answer" value="{{choice}}"  />
