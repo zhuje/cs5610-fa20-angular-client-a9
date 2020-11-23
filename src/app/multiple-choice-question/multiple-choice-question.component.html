@@ -1,1 +1,48 @@
-<p>multiple-choice-question works!</p>
+<h3>     {{question.question }}   </h3><br>
+
+<ul class="list-group">
+  <!-- Conditional Render Highlights the Correct Answer -->
+  <li class="list-group-item" *ngFor="let option of question.choices"
+      [ngClass]="{
+          'list-group-item-success': (
+          grading === true
+          && question.correct === question.selectedAnswer
+          && question.correct === option)
+          ||
+          (grading === true
+          && question.correct !== question.selectedAnswer
+          && question.correct === option),
+          'list-group-item-danger': grading === true
+          && question.correct !== question.selectedAnswer
+          && question.selectedAnswer === option
+      }"
+  >
+
+    <!-- Display Options to Answer the Question -->
+    {{option}}
+    <input
+      type="radio"
+      name="{{question._id}}"
+      [(ngModel)]="question.selectedAnswer"
+      value="{{option}}"
+    />
+
+    <!-- Generate FontAwesome Check or Time for Correct/Incorrect Answer -->
+    <div class="float-right" [hidden]="grading == false">
+      <div class="float-right" [hidden]=" option !== question.correct ">
+        <i class="fas fa-check"></i>
+      </div>
+      <div class="float-right" [hidden]= "question.selectedAnswer === question.correct">
+       <div class="float-right" [hidden]= "question.selectedAnswer !== option">
+        <i class="fas fa-times"></i>
+      </div>
+      </div>
+    </div>
+
+  </li>
+
+</ul>
+
+<button type="button" class="btn btn-success" (click)="grade()">
+  Grade
+</button>

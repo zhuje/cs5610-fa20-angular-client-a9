@@ -1,6 +1,7 @@
 <h3>     {{question.question }}   </h3><br>
 
 <ul class="list-group">
+  <!-- Conditional Render Highlights the Correct Answer -->
   <li class="list-group-item" *ngFor="let option of options"
       [ngClass]="{
           'list-group-item-success': (
@@ -17,9 +18,26 @@
       }"
   >
 
-    {{option}} <input type="radio" name="{{question._id}}"
-                      [(ngModel)]="question.selectedAnswer"
-                      value="{{option}}"/>
+    <!-- Display Options to Answer the Question -->
+    {{option}}
+    <input
+      type="radio"
+      name="{{question._id}}"
+      [(ngModel)]="question.selectedAnswer"
+      value="{{option}}"
+    />
+
+    <!-- Generate FontAwesome Check or Time for Correct/Incorrect Answer -->
+    <div class="float-right" [hidden]="grading == false">
+      <div class="float-right" [hidden]=" option !== question.correct ">
+        <i class="fas fa-check"></i>
+      </div>
+      <div class="float-right" [hidden]= "question.selectedAnswer === question.correct">
+        <div class="float-right" [hidden]= "question.selectedAnswer !== option">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    </div>
   </li>
 
 

@@ -11,11 +11,20 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   constructor() { }
 
   @Input()
-  question = {_id: '', title: '', question: '', choices: [], correct: '', answer: '' };
+  question = {
+    _id: '',
+    title: '',
+    question: '',
+    choices: [],
+    correct: '',
+    selectedAnswer: '' };
+
   grading = false;
   faCheck = faCheck;
   faTimes = faTimes;
-  grade = () => { this.grading = true; };
+  grade = () => {
+    this.grading = true;
+  };
 
 
   ngOnInit(): void {
