@@ -19,36 +19,36 @@
 <!-- Display Answer Options -->
 <ul class="list-group">
   <!-- Conditional Render Highlights the Correct Answer -->
-  <li class="list-group-item" *ngFor="let option of options"
+  <li class="list-group-item" *ngFor="let listedOption of options"
       [ngClass]="{
           'list-group-item-success': (
           grading === true
           && question.correct === question.selectedAnswer
-          && question.correct === option)
+          && question.correct === listedOption)
           ||
           (grading === true
           && question.correct !== question.selectedAnswer
-          && question.correct === option),
+          && question.correct === listedOption),
           'list-group-item-danger': grading === true
           && question.correct !== question.selectedAnswer
-          && question.correct !== option
+          && question.correct !== listedOption
       }"
   >
     <!-- Display Options to Answer the Question -->
-    {{option}}
+    {{listedOption}}
     <input
       type="radio"
       name="{{question._id}}"
       [(ngModel)]="question.selectedAnswer"
-      value="{{option}}"
+      value="{{listedOption}}"
     />
     <!-- Generate FontAwesome Check or Time for Correct/Incorrect Answer -->
     <div class="float-right" [hidden]="grading == false">
-      <div class="float-right" [hidden]=" option !== question.correct ">
+      <div class="float-right" [hidden]=" listedOption !== question.correct ">
         <i class="fas fa-check"></i>
       </div>
       <div class="float-right" [hidden]= "question.selectedAnswer === question.correct">
-        <div class="float-right" [hidden]= "question.selectedAnswer !== option">
+        <div class="float-right" [hidden]= "question.selectedAnswer !== listedOption">
           <i class="fas fa-times"></i>
         </div>
       </div>
