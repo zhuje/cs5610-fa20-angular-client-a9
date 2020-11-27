@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-import {EventEmitter} from 'events';
+import { EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -12,8 +12,10 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   grading = false;
   faCheck = faCheck;
   faTimes = faTimes;
+  JSON;
 
-  constructor() { }
+  constructor() {
+  }
 
   @Input()
   question = {
@@ -22,15 +24,18 @@ export class MultipleChoiceQuestionComponent implements OnInit {
     question: '',
     choices: [],
     correct: '',
-    selectedAnswer: ''
+    answer: ''
   };
+
   @Input()
   answer = '';
 
   @Output()
   answerChange = new EventEmitter<string>();
+
   submitAnswer = () => {
-    this.answerChange.emit(this.answer)
+    this.answerChange.emit(this.answer);
+    this.grade();
   }
 
 

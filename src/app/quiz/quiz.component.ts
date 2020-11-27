@@ -17,7 +17,14 @@ export class QuizComponent implements OnInit {
   // }
   questions = [];
   quizId = {};
-  quiz;
+  quiz = {
+    title: '',
+  };
+  showScore = false;
+  result = {
+    score: '',
+    _id:'',
+  }
 
   constructor(private svc: QuestionsServiceClient,
               private route: ActivatedRoute,
@@ -35,11 +42,14 @@ export class QuizComponent implements OnInit {
   }
 
   submitQuiz = () => {
+    this.showScore = true;
     fetch( `http://localhost:3000/api/quizzes/${this.quizId}/attempts`, {
       method: 'POST',
       body: JSON.stringify(this.questions), headers: {
         'content-type': 'application/json' }
-    }).then(response => response.json()) .then(result => console. log(result))
+    }).then(response => response.json())
+      .then(result => this.result = result)
+      .then(result => console.log(result))
   }
 
 }

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-import {EventEmitter} from 'events';
+import { EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -34,7 +34,7 @@ export class TrueFalseQuestionComponent implements OnInit {
     _id: '',
     title: '',
     question: '',
-    selectedAnswer: '',
+    answer: '',
     correct: '',
     selected: false,
   };
@@ -44,9 +44,11 @@ export class TrueFalseQuestionComponent implements OnInit {
 
   @Output()
   answerChange = new EventEmitter<string>();
+
   submitAnswer = () => {
-    this.answerChange.emit(this.answer)
-  }
+    this.answerChange.emit(this.answer);
+    this.grade();
+  };
 
   // Get row item from array
   getSelecteditem(){
@@ -58,12 +60,9 @@ export class TrueFalseQuestionComponent implements OnInit {
     this.getSelecteditem();
   }
 
-
   grade = () => {
     this.grading = true;
   };
-
-
 
   ngOnInit(): void {
   }

@@ -5,11 +5,11 @@
     {{ question.question }}
     <div class="" [hidden]="grading == false">
       <!-- Correct Answer Selected | Display Check Mark -->
-      <div class="" [hidden]=" question.selectedAnswer !== question.correct ">
+      <div class="" [hidden]=" question.answer !== question.correct ">
         <i class="fas fa-check wbdv-fa-check-question"></i>
       </div>
       <!-- Wrong Answer Selected | Display Times Mark -->
-      <div class="float-right" [hidden]="question.selectedAnswer === question.correct">
+      <div class="float-right" [hidden]="question.answer === question.correct">
         <i class="fas fa-times wbdv-fa-times-question"></i>
       </div>
     </div>
@@ -23,14 +23,14 @@
       [ngClass]="{
           'list-group-item-success': (
           grading === true
-          && question.correct === question.selectedAnswer
+          && question.correct === question.answer
           && question.correct === listedOption)
           ||
           (grading === true
-          && question.correct !== question.selectedAnswer
+          && question.correct !== question.answer
           && question.correct === listedOption),
           'list-group-item-danger': grading === true
-          && question.correct !== question.selectedAnswer
+          && question.correct !== question.answer
           && question.correct !== listedOption
       }"
   >
@@ -39,7 +39,7 @@
     <input
       type="radio"
       name="{{question._id}}"
-      [(ngModel)]="question.selectedAnswer"
+      [(ngModel)]="question.answer"
       value="{{listedOption}}"
     />
     <!-- Generate FontAwesome Check or Time for Correct/Incorrect Answer -->
@@ -47,8 +47,8 @@
       <div class="float-right" [hidden]=" listedOption !== question.correct ">
         <i class="fas fa-check"></i>
       </div>
-      <div class="float-right" [hidden]= "question.selectedAnswer === question.correct">
-        <div class="float-right" [hidden]= "question.selectedAnswer !== listedOption">
+      <div class="float-right" [hidden]= "question.answer === question.correct">
+        <div class="float-right" [hidden]= "question.answer !== listedOption">
           <i class="fas fa-times"></i>
         </div>
       </div>
@@ -57,6 +57,10 @@
 </ul>
 
 <!-- Grade Button to Submit Answer -->
-<button type="button" class="btn btn-success" (click)="grade()">
-  Grade
+<!--<button type="button" class="btn btn-success" (click)="grade()"  (click)="submitAnswer()">-->
+<!--  Grade-->
+<!--</button>-->
+
+<button type="button" class="btn btn-success"  (click)="submitAnswer()">
+  Submit Answer
 </button>
