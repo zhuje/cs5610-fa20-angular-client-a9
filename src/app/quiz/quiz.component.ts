@@ -25,6 +25,7 @@ export class QuizComponent implements OnInit {
     score: '',
     _id:'',
   }
+  attempts = [];
 
   constructor(private svc: QuestionsServiceClient,
               private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class QuizComponent implements OnInit {
         .then(qs => this.questions = qs);
       this.quizService.findQuizById(this.quizId)
         .then(quiz => this.quiz = quiz)
+      this.getQuizAttempts();
     })
   }
 
@@ -52,4 +54,11 @@ export class QuizComponent implements OnInit {
       .then(result => console.log(result))
   }
 
+  getQuizAttempts = () => {
+    this.showScore = true;
+    fetch( `http://localhost:3000/api/quizzes/${this.quizId}/attempts`, {
+    }).then(response => response.json())
+      .then(attempts => this.attempts = attempts)
+      .then(attempts => console.log(attempts))
+  }
 }

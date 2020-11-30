@@ -9,20 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class QuizzesComponent implements OnInit {
   courseId = '';
-  quizzes = [
-    // {
-    //   _id: '123',
-    //   title: 'quiz 1'
-    // },
-    // {
-    //   _id: '234',
-    //   title: 'quiz 2'
-    // },
-    // {
-    //   _id: '345',
-    //   title: 'quiz 3'
-    // }
-  ];
+  quizzes = [];
 
   constructor(private quizService: QuizzesServiceClient,
               private route: ActivatedRoute) {
@@ -37,5 +24,7 @@ export class QuizzesComponent implements OnInit {
       }
     });
   }
+
+
 
 }

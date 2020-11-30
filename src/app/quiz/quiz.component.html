@@ -45,3 +45,12 @@
   Show Score
 </button>
 
+
+<ul>
+  <h1> Previous Quiz Attempts </h1>
+  <li class="list-group-item" *ngFor= "let attempt of attempts; let i = index;">
+    <b> Attempt Number : {{i + 1}} </b>
+    | Score : {{attempt.score}}
+  </li>
+</ul>
+
